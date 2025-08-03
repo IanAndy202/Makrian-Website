@@ -68,7 +68,7 @@ export default function Home() {
       href="#hero"
       className="flex items-center justify-center gap-4 hover:scale-105 transition-transform duration-300"
     >
-      <img
+      <Image
         src="/finallogo.png"
         alt="Makrian Logo"
         width={150}
@@ -132,7 +132,7 @@ Credit, Surety, Cyber, Energy, and Aviation, along with Microinsurance and Bond 
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
           {/* Value Proposition */}
           <div className="flex gap-6">
-            <img src="/values.png" alt="Value Proposition" width={200} height={200} className="w-[220px] h-[220px] object-cover rounded-lg shadow-md" />
+            <Image src="/values.png" alt="Value Proposition" width={200} height={200} className="w-[220px] h-[220px] object-cover rounded-lg shadow-md" />
             <div>
               <h3 className="text-2xl font-bold mb-4 text-justify">Our Value Proposition</h3>
               <ul className="space-y-3">
@@ -156,7 +156,7 @@ Credit, Surety, Cyber, Energy, and Aviation, along with Microinsurance and Bond 
 
           {/* Winning Strategies */}
           <div className="flex gap-6">
-            <img src="/strategies.png" alt="Winning Strategies" width={200} height={200} className="w-[220px] h-[220px] object-cover rounded-lg shadow-md" />
+            <Image src="/strategies.png" alt="Winning Strategies" width={200} height={200} className="w-[220px] h-[220px] object-cover rounded-lg shadow-md" />
             <div>
               <h3 className="text-2xl font-bold mb-4 text-justify">Our Winning Strategies</h3>
               <ul className="space-y-3">
@@ -191,7 +191,7 @@ Credit, Surety, Cyber, Energy, and Aviation, along with Microinsurance and Bond 
         className="transition-transform duration-500 bg-[#fdf8f3] hover:bg-[#f3f0ec] py-16 px-6"
       >
         <div className="flex flex-col md:flex-row items-center justify-center gap-10 max-w-6xl mx-auto">
-          <img
+          <Image
             src="/CEO1.png"
             alt="Founder"
             width={300}
@@ -224,7 +224,7 @@ Credit, Surety, Cyber, Energy, and Aviation, along with Microinsurance and Bond 
       >
         <h2 className="text-3xl font-bold mb-10">Our Reach: Africa & Asia</h2>
         <div className="flex flex-col lg:flex-row items-center justify-center gap-10 max-w-6xl mx-auto">
-          <img
+          <Image
             src="/bluemap.png"
             alt="Makrian Reach"
             width={600}
