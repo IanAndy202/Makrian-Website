@@ -16,7 +16,7 @@ export const metadata = {
   title: "Makrian",
   description: "Reinsurance Brokers LTD",
   icons: {
-    icon: "/finallogo.png", // or "/favicon.ico" if you create a proper favicon
+    icon: "/favicon.ico", // or "/favicon.ico" if you create a proper favicon
   },
 };
 
