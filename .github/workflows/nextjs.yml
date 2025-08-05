@@ -1,12 +1,10 @@
-# Sample workflow for building and deploying a Next.js site to GitHub Pages
+# .github/workflows/nextjs.yml
+
 name: Deploy Next.js site to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 permissions:
@@ -25,34 +23,20 @@ jobs:
       - name: 📥 Checkout code
         uses: actions/checkout@v4
 
-      - name: 🧰 Detect package manager
-        id: detect-package-manager
-        run: |
-          if [ -f "${{ github.workspace }}/yarn.lock" ]; then
-            echo "manager=yarn" >> $GITHUB_OUTPUT
-            echo "command=install" >> $GITHUB_OUTPUT
-            echo "runner=yarn" >> $GITHUB_OUTPUT
-          else
-            echo "manager=npm" >> $GITHUB_OUTPUT
-            echo "command=ci" >> $GITHUB_OUTPUT
-            echo "runner=npx --no-install" >> $GITHUB_OUTPUT
-          fi
-
       - name: 🛠️ Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
 
       - name: 📦 Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        run: npm install
 
       - name: ⚒️ Build and export static site
         run: |
-          ${{ steps.detect-package-manager.outputs.runner }} next build
-          ${{ steps.detect-package-manager.outputs.runner }} next export
+          npm run build
+          npm run export
 
-      - name: 📤 Upload static site to GitHub Pages
+      - name: 📤 Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
@@ -62,8 +46,8 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - name: 🚀 Deploy to GitHub Pages
-        id: deployment
+        id: deploy
         uses: actions/deploy-pages@v4
