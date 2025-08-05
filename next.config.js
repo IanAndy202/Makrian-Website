@@ -1,6 +1,6 @@
 const nextConfig = {
   output: 'export',
-  assetPrefix: './',
+  assetPrefix: '/',
 };
 
 module.exports = nextConfig;
