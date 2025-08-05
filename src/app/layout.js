@@ -13,8 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Makrian & B",
+  title: "Makrian",
   description: "Reinsurance Brokers LTD",
+  icons: {
+    icon: "/finallogo.png", // or "/favicon.ico" if you create a proper favicon
+  },
 };
 
 export default function RootLayout({ children }) {
