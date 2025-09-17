@@ -2,7 +2,7 @@
 module.exports = {
   siteUrl: 'https://makrian.com',
   // GitHub Pages exports to /dist, so write files there:
-  outDir: 'dist',
+  outDir: 'out',
   generateRobotsTxt: true,          // creates robots.txt automatically
   sitemapSize: 7000,
   exclude: ['/404', '/500'],
