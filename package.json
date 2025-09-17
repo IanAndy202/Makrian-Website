@@ -6,6 +6,7 @@
     "build": "next build",
     "export": "next build",
     "deploy": "next build && gh-pages -d out -b gh-pages"
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "framer-motion": "^12.23.11",
