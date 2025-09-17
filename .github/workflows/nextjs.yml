@@ -1,5 +1,3 @@
-# .github/workflows/nextjs.yml
-
 name: Deploy Next.js site to Pages
 
 on:
@@ -29,12 +27,11 @@ jobs:
           node-version: "20"
 
       - name: 📦 Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: ⚒️ Build and export static site
-        run: |
-          npm run build
-          npm run export
+      - name: ⚒️ Build (export + generate sitemap)
+        run: npm run build
+        # postbuild will run next-sitemap and write to ./out
 
       - name: 📤 Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -51,3 +48,4 @@ jobs:
       - name: 🚀 Deploy to GitHub Pages
         id: deploy
         uses: actions/deploy-pages@v4
+
