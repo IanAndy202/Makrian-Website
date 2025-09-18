@@ -50,7 +50,7 @@ export default function Footer() {
             <ul className="text-sm space-y-1">
               <li>Email: <a href="mailto:info@makrian.com" className="hover:underline">bethnyagah@makrianre.com</a></li>
               <li>Phone: +254 722 767826</li>
-              <li>Website: makrianre.com</li>
+              <li>Website: makrian.com</li>
             </ul>
           </div>
 
