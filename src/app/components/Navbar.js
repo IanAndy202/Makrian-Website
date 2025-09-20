@@ -53,7 +53,7 @@ export default function Navbar() {
 
         {/* Navigation Links */}
         <div className="space-x-6 text-sm sm:text-base">
-          <Link href="/#about" className="hover:underline">
+          <Link href="/about" className="hover:underline">
             About
           </Link>
 
