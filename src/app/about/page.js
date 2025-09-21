@@ -85,7 +85,7 @@ export default function AboutPage() {
     const hash = href.startsWith('#') ? href : href.slice(href.indexOf('#'));
 
     // let the ContactModal open normally
-    if (hash === '#contact') return;
+    if (href.includes('#contact')) return;
 
     // smooth scroll for everything else
     e.preventDefault();
