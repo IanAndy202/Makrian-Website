@@ -62,7 +62,7 @@ export default function Navbar() {
           </Link>
 
           {pathname === "/" ? (
-            <a href="#footer" className="hover:underline">
+            <a href="#contact" className="hover:underline">
               Contact
             </a>
           ) : (
