@@ -106,7 +106,7 @@ export default function ContactModal() {
             <div className="w-full max-w-xl rounded-2xl shadow-2xl bg-white overflow-hidden">
               {/* Header */}
               <div className="flex items-center justify-between px-6 py-4 bg-[#001D61] text-white">
-                <h3 className="text-lg md:text-xl font-semibold">Contact Makrian</h3>
+                <h3 className="text-lg md:text-xl font-semibold">           Contact Makrian</h3>
                 <button
                   onClick={close}
                   className="p-2 rounded-full hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/40"
@@ -130,7 +130,7 @@ export default function ContactModal() {
                       value={formData.name}
                       onChange={onChange}
                       placeholder="Your name"
-                      className="w-full p-3 outline-none bg-transparent"
+                      className="w-full p-3 outline-none bg-transparent placeholder:text-[#001D61]/80"
                     />
                   </div>
                 </label>
@@ -146,7 +146,7 @@ export default function ContactModal() {
                       value={formData.email}
                       onChange={onChange}
                       placeholder="you@example.com"
-                      className="w-full p-3 outline-none bg-transparent"
+                      className="w-full p-3 outline-none bg-transparent placeholder:text-[#001D61]/80"
                     />
                   </div>
                 </label>
@@ -162,7 +162,7 @@ export default function ContactModal() {
                       value={formData.phone}
                       onChange={onChange}
                       placeholder="+254 7xx xxx xxx"
-                      className="w-full p-3 outline-none bg-transparent"
+                      className="w-full p-3 outline-none bg-transparent placeholder:text-[#001D61]/80"
                     />
                   </div>
                 </label>
@@ -179,7 +179,7 @@ export default function ContactModal() {
                       onChange={onChange}
                       rows={5}
                       placeholder="How can we help?"
-                      className="w-full p-3 outline-none bg-transparent resize-y"
+                      className="w-full p-3 outline-none bg-transparent resize-y placeholder:text-[#001D61]/80"
                     />
                   </div>
                 </label>
