@@ -114,10 +114,11 @@ export default function AboutPage() {
           whileHover={{ scale: 1.02 }}
           className="transition-transform duration-500 bg-[#fdf8f3] hover:bg-[#f3f0ec] py-16 px-6 text-center"
         >
-          <h2 className="text-3xl font-bold mb-4">Who We Are</h2>
+          <h2 className="text-3xl font-bold mb-4">About Us</h2>
           <p className="max-w-3xl mx-auto">
             Makrian RE provides <strong>comprehensive insurance solutions</strong> across Property, Liability, Marine, Motor,
-            Medical and Accident lines, plus specialist areas like Political Violence, Credit, Surety, Cyber, Energy and Aviation.
+            Medical and Accident lines. We specialise in high-risk and emerging areas such as Political Violence,
+Credit, Surety, Cyber, Energy, and Aviation, along with Microinsurance and Bond Insurance.
           </p>
         </motion.section>
 
