@@ -60,6 +60,10 @@ export default function Navbar() {
           <Link href="/services" className="hover:underline">
             Services
           </Link>
+          
+          <Link href="/team" className="hover:underline">
+            Team
+          </Link>
 
           {pathname === "/" ? (
             <a href="#contact" className="hover:underline">
