@@ -9,13 +9,7 @@ import {
   FaMicrochip, FaChartLine, FaCogs, FaNetworkWired
 } from "react-icons/fa";
 
-/** ---------- SEO ---------- */
-export const metadata = {
-  title: "About Makrian & B | Our Story and Team",
-  description:
-    "Learn about Makrian & B: our mission, leadership, value proposition and markets served in reinsurance and risk solutions.",
-  alternates: { canonical: "https://makrian.com/#about" },
-};
+
 
 /** ---------- Animations ---------- */
 const fadeIn = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8 } } };
