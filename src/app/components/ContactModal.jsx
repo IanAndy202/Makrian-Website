@@ -103,18 +103,16 @@ export default function ContactModal() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.98, y: 10 }}
           >
-            <div className="w-full max-w-xl rounded-2xl shadow-2xl bg-white overflow-hidden">
-              {/* Header */}
-              <div className="flex items-center justify-between px-6 py-4 bg-[#001D61] text-white">
-                <h3 className="text-lg md:text-xl font-semibold">           Contact Makrian</h3>
-                <button
-                  onClick={close}
-                  className="p-2 rounded-full hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/40"
-                  aria-label="Close contact form"
+            <div className="relative flex items-center justify-center px-6 py-4 bg-[#001D61] text-white">
+              <h3 className="w-full text-center text-lg md:text-xl font-semibold">Contact Makrian</h3>
+              <button
+                onClick={close}
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/40"
+                aria-label="Close contact form"
                 >
-                  <FaTimes />
-                </button>
-              </div>
+                <FaTimes />
+              </button>
+            </div>
 
               {/* Body */}
               <form onSubmit={handleSubmit} className="px-6 py-6 bg-[#fdf8f3]">
@@ -130,7 +128,7 @@ export default function ContactModal() {
                       value={formData.name}
                       onChange={onChange}
                       placeholder="Your name"
-                      className="w-full p-3 outline-none bg-transparent text-[#001D61] caret-[#001D61] placeholder:text-[#001D61]/65"
+                      className="w-full p-3 outline-none bg-transparent text-[#001D61] caret-[#001D61] placeholder:text-[#001D61]/58"
                     />
                   </div>
                 </label>
@@ -146,7 +144,7 @@ export default function ContactModal() {
                       value={formData.email}
                       onChange={onChange}
                       placeholder="you@example.com"
-                      className="w-full p-3 outline-none bg-transparent resize-y text-[#001D61] caret-[#001D61] placeholder:text-[#001D61]/65"
+                      className="w-full p-3 outline-none bg-transparent resize-y text-[#001D61] caret-[#001D61] placeholder:text-[#001D61]/58"
                     />
                   </div>
                 </label>
@@ -162,7 +160,7 @@ export default function ContactModal() {
                       value={formData.phone}
                       onChange={onChange}
                       placeholder="+254 7xx xxx xxx"
-                      className="w-full p-3 outline-none bg-transparent resize-y text-[#001D61] caret-[#001D61] placeholder:text-[#001D61]/65"
+                      className="w-full p-3 outline-none bg-transparent resize-y text-[#001D61] caret-[#001D61] placeholder:text-[#001D61]/58"
                     />
                   </div>
                 </label>
@@ -179,7 +177,7 @@ export default function ContactModal() {
                       onChange={onChange}
                       rows={5}
                       placeholder="How can we help?"
-                      className="w-full p-3 outline-none bg-transparent resize-y text-[#001D61] caret-[#001D61] placeholder:text-[#001D61]/65"
+                      className="w-full p-3 outline-none bg-transparent resize-y text-[#001D61] caret-[#001D61] placeholder:text-[#001D61]/58"
                     />
                   </div>
                 </label>
