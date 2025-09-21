@@ -87,7 +87,7 @@ export default function ContactModal() {
       });
 
       if (res.ok) {
-        setStatus({ state: "success", msg: "Thanks! Your message has been sent." });
+        setStatus({ state: "success", msg: "Thanks! We'll be intouch soon." });
         setFormData({ name: "", email: "", phone: "", message: "", company: "" });
         setTimeout(close, 1500); // auto-close
       } else {
