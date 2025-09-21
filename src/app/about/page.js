@@ -76,10 +76,18 @@ export default function AboutPage() {
     const handleAnchorScroll = (e) => {
       const link = e.target.closest('a[href^="#"]');
       if (!link) return;
+
+      const href = link.getAttribute("href");
+
+      // ✅ Let ContactModal handle this one
+      if (href === "#contact") return;
+
+      // For all other hashes, smooth scroll
       e.preventDefault();
-      const id = link.getAttribute("href").slice(1);
+      const id = href.slice(1);
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     };
+
     document.addEventListener("click", handleAnchorScroll);
     return () => document.removeEventListener("click", handleAnchorScroll);
   }, []);
