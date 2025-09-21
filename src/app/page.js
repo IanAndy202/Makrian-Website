@@ -35,6 +35,41 @@ const strategyPoints = [
   { icon: FaMicrochip,     text: "Innovation & technology (incl. blockchain where useful)." },
   { icon: FaChartLine,     text: "Designed to deliver lasting stakeholder value." },
 ];
+const teamMembers = [
+  {
+    icon: FaUserTie,
+    name: "Joy Waruguru",
+    role: "Underwriter",
+    meta: <>French &amp; English<br/>+254 736 061 925</>,
+  },
+  {
+    icon: FaUserTie,
+    name: "Richard Githae",
+    role: "Business Development Manager",
+    meta: <>+254 794 597 386</>,
+  },
+  {
+    icon: FaUserTie,
+    name: "Addy Njagi",
+    role: "Information &amp; Communication Specialist",
+  },
+  {
+    icon: FaUserTie,
+    name: "Allan N. Gacoki",
+    role: "Board Chairman",
+  },
+  {
+    icon: FaUserTie,
+    name: "Zippy Muthuri",
+    role: "Board Member",
+  },
+  {
+    icon: FaUserTie,
+    name: "Maria L. Murigi",
+    role: "Board Member",
+  },
+];
+
 
 export default function AboutPage() {
   useEffect(() => {
@@ -165,6 +200,58 @@ export default function AboutPage() {
             </div>
           </div>
         </motion.section>
+{/* Our Team */}
+<motion.section
+  id="team"
+  variants={fadeIn}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  whileHover={{ scale: 1.02 }}
+  className="transition-transform duration-500 bg-[#fdf8f3] hover:bg-[#f3f0ec] py-16 px-6"
+>
+  <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+    {/* Left: square image */}
+    <div className="flex justify-center md:justify-start">
+      <Image
+        src="/team.png"   // put an image named team.png (or change to an existing public image)
+        alt="Our Team"
+        width={420}
+        height={420}
+        className="w-[300px] h-[300px] md:w-[380px] md:h-[380px] object-cover rounded-xl shadow-lg"
+      />
+    </div>
+
+    {/* Right: names + roles with icons */}
+    <div>
+      <h3 className="text-3xl font-bold mb-6 text-[#001D61]">Our Team</h3>
+      <ul className="space-y-4">
+        {teamMembers.map((m, i) => (
+          <motion.li
+            key={m.name}
+            custom={i}
+            variants={pointVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="flex items-start gap-3"
+          >
+            <m.icon className="mt-1 text-[#001D61] shrink-0" />
+            <div>
+              <div className="font-semibold text-lg">{m.name}</div>
+              <div className="text-[#001D61]/90">{m.role}</div>
+              {m.meta && (
+                <div className="text-sm text-[#001D61]/80 italic mt-0.5">{m.meta}</div>
+              )}
+            </div>
+          </motion.li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</motion.section>
+
+
 
         {/* Reach */}
         <motion.section
