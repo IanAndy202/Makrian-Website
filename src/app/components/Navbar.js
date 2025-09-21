@@ -66,7 +66,7 @@ export default function Navbar() {
               Contact
             </a>
           ) : (
-            <Link href="/#footer" className="hover:underline">
+            <Link href="/#contact" className="hover:underline">
               Contact
             </Link>
           )}
