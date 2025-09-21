@@ -130,7 +130,7 @@ export default function ContactModal() {
                       value={formData.name}
                       onChange={onChange}
                       placeholder="Your name"
-                      className="w-full p-3 outline-none bg-transparent placeholder:text-[#001D61]/80"
+                      className="w-full p-3 outline-none bg-transparent text-[#001D61] caret-[#001D61] placeholder:text-[#001D61]/65"
                     />
                   </div>
                 </label>
@@ -146,7 +146,7 @@ export default function ContactModal() {
                       value={formData.email}
                       onChange={onChange}
                       placeholder="you@example.com"
-                      className="w-full p-3 outline-none bg-transparent placeholder:text-[#001D61]/80"
+                      className="w-full p-3 outline-none bg-transparent resize-y text-[#001D61] caret-[#001D61] placeholder:text-[#001D61]/65"
                     />
                   </div>
                 </label>
@@ -162,7 +162,7 @@ export default function ContactModal() {
                       value={formData.phone}
                       onChange={onChange}
                       placeholder="+254 7xx xxx xxx"
-                      className="w-full p-3 outline-none bg-transparent placeholder:text-[#001D61]/80"
+                      className="w-full p-3 outline-none bg-transparent resize-y text-[#001D61] caret-[#001D61] placeholder:text-[#001D61]/65"
                     />
                   </div>
                 </label>
@@ -179,7 +179,7 @@ export default function ContactModal() {
                       onChange={onChange}
                       rows={5}
                       placeholder="How can we help?"
-                      className="w-full p-3 outline-none bg-transparent resize-y placeholder:text-[#001D61]/80"
+                      className="w-full p-3 outline-none bg-transparent resize-y text-[#001D61] caret-[#001D61] placeholder:text-[#001D61]/65"
                     />
                   </div>
                 </label>
