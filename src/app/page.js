@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
-import Footer from "../components/Footer";
+import Footer from "./components/Footer";
 import {
   FaPuzzlePiece, FaHandshake, FaBullseye, FaShieldAlt,
   FaMicrochip, FaChartLine, FaCogs, FaNetworkWired
