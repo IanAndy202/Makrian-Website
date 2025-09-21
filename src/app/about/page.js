@@ -51,7 +51,7 @@ const teamMembers = [
   {
     icon: FaUserTie,
     name: "Addy Njagi",
-    role: "Information &amp; Communication Specialist",
+    role: "Information & Communication Specialist",
   },
   {
     icon: FaUserTie,
