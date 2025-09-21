@@ -32,6 +32,26 @@ export default function ContactModal() {
     window.addEventListener("hashchange", handleHash);
     return () => window.removeEventListener("hashchange", handleHash);
   }, []);
+  useEffect(() => {
+  // open modal when any link with #contact is clicked (works with Next <Link> too)
+  const onClickOpen = (e) => {
+    const el = e.target.closest('a[href]');
+    if (!el) return;
+    const href = el.getAttribute('href') || '';
+    if (!href.includes('#contact')) return;
+
+    e.preventDefault(); // prevent scrolling
+    // update URL hash without reload
+    const url = new URL(window.location.href);
+    url.hash = 'contact';
+    history.pushState(null, '', url);
+    setOpen(true);
+  };
+
+  document.addEventListener('click', onClickOpen);
+  return () => document.removeEventListener('click', onClickOpen);
+}, []);
+
 
   // Focus the first field when opening; add ESC to close
   useEffect(() => {
