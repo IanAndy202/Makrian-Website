@@ -56,7 +56,7 @@ export default function AboutPage() {
         <section id="hero" className="bg-[#001D61] text-white flex flex-col items-center justify-center h-[35vh] text-center px-4 pt-28">
           <a href="#hero" className="flex items-center justify-center gap-4 hover:scale-105 transition-transform duration-300">
             <Image src="/finallogo.png" alt="Makrian Logo" width={150} height={150} className="w-[150px] h-[150px] object-contain" />
-            <h1 className="text-4xl md:text-5xl font-extrabold">ABOUT MAKRIAN REINSURANCE BROKERS LTD</h1>
+            <h1 className="text-4xl md:text-5xl font-extrabold">MAKRIAN REINSURANCE BROKERS LTD</h1>
           </a>
           <p className="italic text-lg mt-2">Your best partner</p>
         </section>
