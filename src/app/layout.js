@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Makrian",
+  title: "Makrian Reinsurance Brokers",
   description: "Reinsurance Brokers LTD",
   icons: {
     icon: "/favicon.ico", // or "/favicon.ico" if you create a proper favicon
