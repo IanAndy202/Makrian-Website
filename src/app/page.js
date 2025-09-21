@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import Footer from "./components/Footer";
 import {
   FaPuzzlePiece, FaHandshake, FaBullseye, FaShieldAlt,
-  FaMicrochip, FaChartLine, FaCogs, FaNetworkWired
+  FaMicrochip, FaChartLine, FaCogs, FaNetworkWired, FaUserTie, FaPhone, FaLanguage
 } from "react-icons/fa";
 
 
@@ -214,7 +214,7 @@ export default function AboutPage() {
     {/* Left: square image */}
     <div className="flex justify-center md:justify-start">
       <Image
-        src="/team.png"   // put an image named team.png (or change to an existing public image)
+        src="/teampic.png"   // put an image named team.png (or change to an existing public image)
         alt="Our Team"
         width={420}
         height={420}
