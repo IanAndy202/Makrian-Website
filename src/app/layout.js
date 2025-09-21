@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar"; // ✅ Make sure this file exists
+import Navbar from "./components/Navbar";
+import ContactModal from "./components/ContactModal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,8 +27,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar /> {/* ✅ Navbar now visible on every page */}
+        <Navbar /> {/* ✅ Navbar on every page */}
         {children}
++       {/* Contact modal is global so any "#contact" link opens it */}
++       <ContactModal />
       </body>
     </html>
   );
