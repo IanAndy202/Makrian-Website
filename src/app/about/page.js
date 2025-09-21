@@ -73,24 +73,30 @@ const teamMembers = [
 
 export default function AboutPage() {
   useEffect(() => {
-    const handleAnchorScroll = (e) => {
-      const link = e.target.closest('a[href^="#"]');
-      if (!link) return;
+  const handleAnchorScroll = (e) => {
+    const link = e.target.closest('a[href]');
+    if (!link) return;
 
-      const href = link.getAttribute("href");
+    const href = link.getAttribute('href') || '';
+    // only handle in-page anchors
+    if (!href.startsWith('#') && !href.includes('#')) return;
 
-      // ✅ Let ContactModal handle this one
-      if (href === "#contact") return;
+    // normalize to a pure hash (handles "#id" and "/#id")
+    const hash = href.startsWith('#') ? href : href.slice(href.indexOf('#'));
 
-      // For all other hashes, smooth scroll
-      e.preventDefault();
-      const id = href.slice(1);
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    };
+    // let the ContactModal open normally
+    if (hash === '#contact') return;
 
-    document.addEventListener("click", handleAnchorScroll);
-    return () => document.removeEventListener("click", handleAnchorScroll);
-  }, []);
+    // smooth scroll for everything else
+    e.preventDefault();
+    const id = hash.slice(1);
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  document.addEventListener('click', handleAnchorScroll);
+  return () => document.removeEventListener('click', handleAnchorScroll);
+}, []);
+
 
   return (
     <>
