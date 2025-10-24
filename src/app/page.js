@@ -2,85 +2,106 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import Footer from "./components/Footer";
 import {
   FaPuzzlePiece, FaHandshake, FaBullseye, FaShieldAlt,
-  FaMicrochip, FaChartLine, FaCogs, FaNetworkWired, FaUserTie
+  FaMicrochip, FaChartLine, FaCogs, FaNetworkWired, FaUserTie, FaPhone, FaLanguage
 } from "react-icons/fa";
 
-/** ---------- Animations ---------- */
-const fadeIn = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-};
 
+
+/** ---------- Animations ---------- */
+const fadeIn = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8 } } };
 const pointVariants = {
   hidden: { opacity: 0, x: -20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    x: 0,
-    transition: { delay: i * 0.2, duration: 0.5 },
-  }),
+  visible: (i) => ({ opacity: 1, x: 0, transition: { delay: i * 0.2, duration: 0.5 } }),
 };
 
 /** ---------- Content ---------- */
 const valuePoints = [
-  { icon: FaCogs,         text: <>Reinsurance structure &amp; optimization:<br/>Best practices for shareholder value.</> },
-  { icon: FaNetworkWired, text: "Specialist lines: Credit, Cyber, Terrorism, Energy, Aviation, and more." },
-  { icon: FaHandshake,    text: "Technical capacity-building via partnerships with market specialists." },
-  { icon: FaChartLine,    text: "Insights across Africa, Middle East, and Asia." },
-  { icon: FaMicrochip,    text: "Data analytics & research for risk mitigation." },
+  { icon: FaCogs,          text: <>Reinsurance structure & optimization:<br/>Best practices for shareholder value.</> },
+  { icon: FaNetworkWired,  text: "Specialist lines: Credit, Cyber, Terrorism, Energy, Aviation, and more." },
+  { icon: FaHandshake,     text: "Technical capacity-building via partnerships with market specialists." },
+  { icon: FaChartLine,     text: "Insights across Africa, Middle East, and Asia." },
+  { icon: FaMicrochip,     text: "Data analytics & research for risk mitigation." },
 ];
 
 const strategyPoints = [
-  { icon: FaPuzzlePiece, text: "Tailored solutions from 30+ years of global experience." },
-  { icon: FaHandshake,   text: "Partnerships with 100+ networks for collaboration." },
-  { icon: FaBullseye,    text: "Focus on specialist lines with market access." },
-  { icon: FaShieldAlt,   text: "Risk assessment with experts to manage complex risk." },
-  { icon: FaMicrochip,   text: "Innovation & technology (incl. blockchain where useful)." },
-  { icon: FaChartLine,   text: "Designed to deliver lasting stakeholder value." },
+  { icon: FaPuzzlePiece,   text: "Tailored solutions from 30+ years of global experience." },
+  { icon: FaHandshake,     text: "Partnerships with 100+ networks for collaboration." },
+  { icon: FaBullseye,      text: "Focus on specialist lines with market access." },
+  { icon: FaShieldAlt,     text: "Risk assessment with experts to manage complex risk." },
+  { icon: FaMicrochip,     text: "Innovation & technology (incl. blockchain where useful)." },
+  { icon: FaChartLine,     text: "Designed to deliver lasting stakeholder value." },
+];
+const teamMembers = [
+  {
+    icon: FaUserTie,
+    name: "Joy Waruguru",
+    role: "Underwriter",
+    meta: <>French &amp; English<br/>+254 736 061 925</>,
+  },
+  {
+    icon: FaUserTie,
+    name: "Richard Githae",
+    role: "Business Development Manager",
+    meta: <>+254 794 597 386</>,
+  },
+  {
+    icon: FaUserTie,
+    name: "Addy Njagi",
+    role: "Information & Communication Specialist",
+  },
+  {
+    icon: FaUserTie,
+    name: "Allan N. Gacoki",
+    role: "Board Chairman",
+  },
+  {
+    icon: FaUserTie,
+    name: "Zippy Muthuri",
+    role: "Board Member",
+  },
+  {
+    icon: FaUserTie,
+    name: "Maria L. Murigi",
+    role: "Board Member",
+  },
 ];
 
-const teamMembers = [
-  { icon: FaUserTie, name: "Joy Waruguru",    role: "Underwriter",                      meta: <>French &amp; English<br/>+254 736 061 925</> },
-  { icon: FaUserTie, name: "Richard Githae",  role: "Business Development Manager",     meta: <>+254 794 597 386</> },
-  { icon: FaUserTie, name: "Addy Njagi",      role: "Information & Communication Specialist" },
-  { icon: FaUserTie, name: "Allan N. Gacoki", role: "Board Chairman" },
-  { icon: FaUserTie, name: "Zippy Muthuri",   role: "Board Member" },
-  { icon: FaUserTie, name: "Maria L. Murigi", role: "Board Member" },
-];
 
 export default function AboutPage() {
+  useEffect(() => {
+    const handleAnchorScroll = (e) => {
+      const link = e.target.closest('a[href^="#"]');
+      if (!link) return;
+
+      const href = link.getAttribute("href");
+
+      // ✅ Let ContactModal handle this one
+      if (href === "#contact") return;
+
+      // For all other hashes, smooth scroll
+      e.preventDefault();
+      const id = href.slice(1);
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    };
+
+    document.addEventListener("click", handleAnchorScroll);
+    return () => document.removeEventListener("click", handleAnchorScroll);
+  }, []);
+
   return (
     <>
-      {/* NOTE: keep your Navbar fixed with className="fixed top-0 inset-x-0 z-50 ..." */}
-      <main className="bg-[#fdf8f3] text-[#001D61] scroll-smooth pt-20 md:pt-24">
+      <main className="bg-[#fdf8f3] text-[#001D61] scroll-smooth">
         {/* Hero */}
-        <section
-          id="hero"
-          className="scroll-mt-20 md:scroll-mt-24 bg-[#001D61] text-white
-                     flex flex-col items-center justify-center
-                     min-h-[45vh] md:min-h-[35vh]
-                     text-center px-4"
-        >
-          <div className="flex flex-col items-center gap-3">
-            <Image
-              src="/finallogo.png"
-              alt="Makrian Logo"
-              width={150}
-              height={150}
-              className="w-24 h-24 md:w-[150px] md:h-[150px] object-contain"
-              priority
-            />
-            <h1
-              className="text-2xl sm:text-3xl md:text-5xl
-                         leading-tight font-extrabold
-                         max-w-[22ch]"
-            >
-              MAKRIAN REINSURANCE BROKERS LTD
-            </h1>
-            <p className="italic text-base sm:text-lg mt-1">Your best partner</p>
-          </div>
+        <section id="hero" className="bg-[#001D61] text-white flex flex-col items-center justify-center h-[35vh] text-center px-4 pt-28">
+          <a href="#hero" className="flex items-center justify-center gap-4 hover:scale-105 transition-transform duration-300">
+            <Image src="/finallogo.png" alt="Makrian Logo" width={150} height={150} className="w-[150px] h-[150px] object-contain" />
+            <h1 className="text-4xl md:text-5xl font-extrabold">MAKRIAN REINSURANCE BROKERS LTD</h1>
+          </a>
+         
         </section>
 
         {/* About */}
@@ -89,15 +110,15 @@ export default function AboutPage() {
           variants={fadeIn}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true }}
           whileHover={{ scale: 1.02 }}
-          className="scroll-mt-20 md:scroll-mt-24 transition-transform duration-500 bg-[#fdf8f3] hover:bg-[#f3f0ec] py-16 px-6 text-center"
+          className="transition-transform duration-500 bg-[#fdf8f3] hover:bg-[#f3f0ec] py-16 px-6 text-center"
         >
           <h2 className="text-3xl font-bold mb-4">About Us</h2>
           <p className="max-w-3xl mx-auto">
             Makrian RE provides <strong>comprehensive insurance solutions</strong> across Property, Liability, Marine, Motor,
             Medical and Accident lines. We specialise in high-risk and emerging areas such as Political Violence,
-            Credit, Surety, Cyber, Energy, and Aviation, along with Microinsurance and Bond Insurance.
+Credit, Surety, Cyber, Energy, and Aviation, along with Microinsurance and Bond Insurance.
           </p>
         </motion.section>
 
@@ -107,9 +128,9 @@ export default function AboutPage() {
           variants={fadeIn}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true }}
           whileHover={{ scale: 1.02 }}
-          className="scroll-mt-20 md:scroll-mt-24 transition-transform duration-500 bg-[#f5f3ef] py-16 px-6 text-center"
+          className="transition-transform duration-500 bg-[#f5f3ef] py-16 px-6 text-center"
         >
           <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
           <p className="max-w-4xl mx-auto">
@@ -123,32 +144,18 @@ export default function AboutPage() {
           variants={fadeIn}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="scroll-mt-20 md:scroll-mt-24 py-20 px-6 bg-white hover:bg-[#f3f0ec] transition-colors duration-500"
+          viewport={{ once: true }}
+          className="py-20 px-6 bg-white hover:bg-[#f3f0ec] transition-colors duration-500"
         >
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
             {/* Value Proposition */}
             <div className="flex gap-6">
-              <Image
-                src="/values.png"
-                alt="Value Proposition"
-                width={220}
-                height={220}
-                className="w-[220px] h-[220px] object-cover rounded-lg shadow-md"
-              />
+              <Image src="/values.png" alt="Value Proposition" width={220} height={220} className="w-[220px] h-[220px] object-cover rounded-lg shadow-md" />
               <div>
                 <h3 className="text-2xl font-bold mb-4 text-justify">Our Value Proposition</h3>
                 <ul className="space-y-3">
                   {valuePoints.map((p, i) => (
-                    <motion.li
-                      key={i}
-                      custom={i}
-                      variants={pointVariants}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true, amount: 0.2 }}
-                      className="flex items-start gap-2"
-                    >
+                    <motion.li key={i} custom={i} variants={pointVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex items-start gap-2">
                       <p.icon className="mt-1 text-[#001D61]" />
                       <span>{p.text}</span>
                     </motion.li>
@@ -159,26 +166,12 @@ export default function AboutPage() {
 
             {/* Winning Strategies */}
             <div className="flex gap-6">
-              <Image
-                src="/strategies.png"
-                alt="Winning Strategies"
-                width={220}
-                height={220}
-                className="w-[220px] h-[220px] object-cover rounded-lg shadow-md"
-              />
+              <Image src="/strategies.png" alt="Winning Strategies" width={220} height={220} className="w-[220px] h-[220px] object-cover rounded-lg shadow-md" />
               <div>
                 <h3 className="text-2xl font-bold mb-4 text-justify">Our Winning Strategies</h3>
                 <ul className="space-y-3">
                   {strategyPoints.map((p, i) => (
-                    <motion.li
-                      key={i}
-                      custom={i}
-                      variants={pointVariants}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true, amount: 0.2 }}
-                      className="flex items-start gap-2"
-                    >
+                    <motion.li key={i} custom={i} variants={pointVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex items-start gap-2">
                       <p.icon className="mt-1 text-[#001D61]" />
                       <span>{p.text}</span>
                     </motion.li>
@@ -195,9 +188,9 @@ export default function AboutPage() {
           variants={fadeIn}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true }}
           whileHover={{ scale: 1.02 }}
-          className="scroll-mt-20 md:scroll-mt-24 transition-transform duration-500 bg-[#fdf8f3] hover:bg-[#f3f0ec] py-16 px-6"
+          className="transition-transform duration-500 bg-[#fdf8f3] hover:bg-[#f3f0ec] py-16 px-6"
         >
           <div className="flex flex-col md:flex-row items-center justify-center gap-10 max-w-6xl mx-auto">
             <Image src="/CEO1.png" alt="Founder" width={300} height={300} className="rounded-lg shadow-md" />
@@ -216,6 +209,58 @@ export default function AboutPage() {
             </div>
           </div>
         </motion.section>
+{/* Our Team */}
+<motion.section
+  id="team"
+  variants={fadeIn}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  whileHover={{ scale: 1.02 }}
+  className="transition-transform duration-500 bg-[#fdf8f3] hover:bg-[#f3f0ec] py-16 px-6"
+>
+  <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+    {/* Left: square image */}
+    <div className="flex justify-center md:justify-start">
+      <Image
+        src="/teampic.png"   // put an image named team.png (or change to an existing public image)
+        alt="Our Team"
+        width={420}
+        height={420}
+        className="w-[300px] h-[300px] md:w-[380px] md:h-[380px] object-cover rounded-xl shadow-lg"
+      />
+    </div>
+
+    {/* Right: names + roles with icons */}
+    <div>
+      <h3 className="text-3xl font-bold mb-6 text-[#001D61]">Our Team</h3>
+      <ul className="space-y-4">
+        {teamMembers.map((m, i) => (
+          <motion.li
+            key={m.name}
+            custom={i}
+            variants={pointVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="flex items-start gap-3"
+          >
+            <m.icon className="mt-1 text-[#001D61] shrink-0" />
+            <div>
+              <div className="font-semibold text-lg">{m.name}</div>
+              <div className="text-[#001D61]/90">{m.role}</div>
+              {m.meta && (
+                <div className="text-sm text-[#001D61]/80 italic mt-0.5">{m.meta}</div>
+              )}
+            </div>
+          </motion.li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</motion.section>
+
+
 
         {/* Reach */}
         <motion.section
@@ -223,9 +268,9 @@ export default function AboutPage() {
           variants={fadeIn}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true }}
           whileHover={{ scale: 1.02 }}
-          className="scroll-mt-20 md:scroll-mt-24 transition-transform duration-500 bg-[#fdf8f3] hover:bg-[#f3f0ec] py-16 px-6 text-center"
+          className="transition-transform duration-500 bg-[#fdf8f3] hover:bg-[#f3f0ec] py-16 px-6 text-center"
         >
           <h2 className="text-3xl font-bold mb-10">Our Reach: Africa, Middle East &amp; Asia</h2>
           <div className="flex flex-col lg:flex-row items-center justify-center gap-10 max-w-6xl mx-auto">
