@@ -92,17 +92,39 @@ export default function AboutPage() {
     return () => document.removeEventListener("click", handleAnchorScroll);
   }, []);
 
-  return (
-    <>
-      <main className="bg-[#fdf8f3] text-[#001D61] scroll-smooth">
-        {/* Hero */}
-        <section id="hero" className="bg-[#001D61] text-white flex flex-col items-center justify-center h-[35vh] text-center px-4 pt-28">
-          <a href="#hero" className="flex items-center justify-center gap-4 hover:scale-105 transition-transform duration-300">
-            <Image src="/finallogo.png" alt="Makrian Logo" width={150} height={150} className="w-[150px] h-[150px] object-contain" />
-            <h1 className="text-4xl md:text-5xl font-extrabold">MAKRIAN REINSURANCE BROKERS LTD</h1>
-          </a>
-          <p className="italic text-lg mt-2">Your best partner</p>
-        </section>
+  // Page + Hero
+return (
+  <>
+    <main className="bg-[#fdf8f3] text-[#001D61] scroll-smooth
+                    pt-20 md:pt-24  /* space for fixed navbar */">
+      {/* Hero */}
+      <section
+        id="hero"
+        className="relative z-0 bg-[#001D61] text-white
+                   flex flex-col items-center justify-center
+                   min-h-[45vh] md:min-h-[35vh]
+                   text-center px-4"
+      >
+        {/* don't wrap this in an <a href="#hero">; it causes jump/offset issues */}
+        <div className="flex flex-col items-center gap-3">
+          <Image
+            src="/finallogo.png"
+            alt="Makrian Logo"
+            width={150}
+            height={150}
+            className="w-24 h-24 md:w-[150px] md:h-[150px] object-contain"
+          />
+          <h1 className="text-2xl sm:text-3xl md:text-5xl
+                         leading-tight font-extrabold
+                         max-w-[22ch]">
+            MAKRIAN REINSURANCE BROKERS LTD
+          </h1>
+          <p className="italic text-base sm:text-lg mt-1">
+            Your best partner
+          </p>
+        </div>
+      </section>
+
 
         {/* About */}
         <motion.section
